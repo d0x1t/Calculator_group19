@@ -26,10 +26,10 @@ public class CalculatorView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(CalculatorView.class.getResource("primary.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("Complex Calculator");
-        // Ottieni il controller e passa la referenza dello Stage
+          // Ottieni il controller e passa la referenza dello Stage. Facciamo questo perche il controller ha bisogno 
+          //di espandere la finestra se l'utente vuole visualizzare lo stack o il buffer delle variabili 
         controller = fxmlLoader.getController();
         controller.setPrimaryStage(stage);
-
         stage.setResizable(false);
 
         Scene scene = new Scene(root, 375, 241);

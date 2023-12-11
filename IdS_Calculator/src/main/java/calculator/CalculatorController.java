@@ -15,6 +15,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -36,7 +37,8 @@ public class CalculatorController implements Initializable {
     private TextArea StackTextArea;
     @FXML
     private TextField main_textfield;
-  
+   
+    private Stage primaryStage;
 
     /**
      * Initializes the controller class.
@@ -72,6 +74,9 @@ public class CalculatorController implements Initializable {
 
     @FXML
     private void handleStackButtons(ActionEvent event) {
+    }
+       public void setPrimaryStage(Stage stage) {
+        this.primaryStage = stage;
     }
     
 }
