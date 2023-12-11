@@ -275,7 +275,7 @@ public class CalculatorModelTest {
     public void testIsValidOperatorTO12() {
         assertFalse(model.isValidOperator("*"));
     }
-}
+
  @Test
     public void testexecuteOperationsTE01() throws ErrorHandler {
         stack.push("3+2j");
@@ -341,3 +341,63 @@ public class CalculatorModelTest {
         model.executeOperations();
         assertEquals("-0.25+0.75j", stack.pop());
     }
+
+    @Test
+    public void testHandleVariablesTH01() throws ErrorHandler {
+        stack.push("3+4j");
+        assertDoesNotThrow(() -> model.HandleVariables(">x"));
+        assertEquals("3+4j", bufVariable.valueVariable('x'));
+    }
+
+    @Test
+    public void testHandleVariablesTH02() throws ErrorHandler {
+        stack.push("+");
+        assertThrows(ErrorHandler.class, () -> model.HandleVariables(">x"));
+    }
+
+    @Test
+    public void testHandleVariablesTH03() {
+      
+       assertThrows(ErrorHandler.class, () -> model.HandleVariables(">x"));
+    }
+
+    @Test
+    public void testHandleVariablesTH04() {
+       stack.push("3+4j");
+      assertThrows(ErrorHandler.class, () -> model.HandleVariables("<x"));
+    }
+
+    @Test
+    public void testHandleVariablesTH05() throws ErrorHandler {
+        stack.push("3+4j");//faccio questa operazione per inserire almeno un valore nello stack. altrimenti viene lanciata un eccezione di tipo ErrorHandler che in questo test non mi interessa
+        bufVariable.storeVariable('x', "5+2j");
+        assertDoesNotThrow(() -> model.HandleVariables("<x"));
+        assertEquals("5+2j", stack.peek());
+    }
+
+    @Test
+    public void testHandleVariablesTH06() {
+        assertThrows(ErrorHandler.class, () -> model.HandleVariables("+x"));
+    }
+
+    @Test
+    public void testHandleVariablesTH07() throws ErrorHandler {
+        bufVariable.storeVariable('x', "3+2j");
+        stack.push("5-1j");
+        assertDoesNotThrow(() -> model.HandleVariables("+x"));
+        assertEquals("8+1j", bufVariable.valueVariable('x'));
+    }
+
+    @Test
+    public void testHandleVariablesTH08() {
+        assertThrows(ErrorHandler.class, () -> model.HandleVariables("-x"));
+    }
+
+    @Test
+    public void testHandleVariablesTH09() throws ErrorHandler {
+        bufVariable.storeVariable('x', "7+4j");
+        stack.push("2+1j");
+        assertDoesNotThrow(() -> model.HandleVariables("-x"));
+        assertEquals("5+3j", bufVariable.valueVariable('x'));
+    }
+}
