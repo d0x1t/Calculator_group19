@@ -276,3 +276,68 @@ public class CalculatorModelTest {
         assertFalse(model.isValidOperator("*"));
     }
 }
+ @Test
+    public void testexecuteOperationsTE01() throws ErrorHandler {
+        stack.push("3+2j");
+        stack.push("1+4.2j");
+        stack.push("+");
+        model.executeOperations();
+        assertEquals("4+6.2j", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE02() throws ErrorHandler {
+        stack.push("5+3j");
+        stack.push("2+1j");
+        stack.push("-");
+        model.executeOperations();
+        assertEquals("3+2j", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE03() throws ErrorHandler {
+        stack.push("3+2j");
+        stack.push("1+4j");
+        stack.push("×");
+        model.executeOperations();
+        assertEquals("-5+14j", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE04() throws ErrorHandler {
+        stack.push("3+2j");
+        stack.push("1+4j");
+        stack.push("÷");
+        model.executeOperations();
+        assertEquals("0.65-0.59j", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE05() throws ErrorHandler {
+        stack.push("4+0j");
+        stack.push("√");
+        model.executeOperations();
+        assertEquals("2", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE06() throws ErrorHandler {
+        stack.push("1+1j");
+        stack.push("+/-");
+        model.executeOperations();
+        assertEquals("-1-1j", stack.pop());
+    }
+
+    @Test
+    public void testexecuteOperationsTE07() throws ErrorHandler {
+        stack.clear();
+        stack.push("3+2j");
+        stack.push("1+1j");
+        stack.push("4+0j");
+        stack.push("+");
+        stack.push("-");
+        stack.push("2+2j");
+        stack.push("÷");
+        model.executeOperations();
+        assertEquals("-0.25+0.75j", stack.pop());
+    }
