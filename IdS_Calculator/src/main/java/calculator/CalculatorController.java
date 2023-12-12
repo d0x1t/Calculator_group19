@@ -64,13 +64,39 @@ public class CalculatorController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
+   @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        stack = new Stack(StackTextArea);
+        bufVariable = new BufferVariable(VariablesTextArea);
+        model = new CalculatorModel(stack, bufVariable, this);
+        ADD_Button.requestFocus();
+
+        SplitPane.Divider divider = split_line.getDividers().get(0);
+
+        divider.positionProperty().addListener((observable, oldvalue, newvalue) -> {
+            if (isMemoryExpanded) {
+                divider.setPosition(saved_percentage);
+            } else {
+                divider.setPosition(0.0);
+            }
+        });
+    }
 
     @FXML
-    private void handleTextedButton(ActionEvent event) {
+    public void handleTextedButton(ActionEvent event) {
+        if (all_keys_disabled) {
+            return;
+        }
+
+        ADD_Button.requestFocus();
+
+        Button btn = (Button) event.getSource();
+
+        if (main_textfield.getText().equals("0") && !btn.getText().equals(".") && !btn.getText().equals("0")) {
+            main_textfield.setText(btn.getText());
+        } else {
+            main_textfield.setText(main_textfield.getText() + btn.getText());
+        }
     }
 
     @FXML
