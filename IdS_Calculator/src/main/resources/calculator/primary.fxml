@@ -23,17 +23,17 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="239.0" prefWidth="258.0" style="-fx-background-color: rgba(0, 0, 0, 0.0);" SplitPane.resizableWithParent="false">
                <children>
-                  <Button layoutX="335.0" layoutY="8.0" mnemonicParsing="false" onAction="#ClearTextfield" prefHeight="34.0" prefWidth="32.0" style="-fx-background-color: #5F6267;" text="AC" textFill="WHITE" />
+                  <Button layoutX="335.0" layoutY="8.0" mnemonicParsing="false" onAction="#clearTextfield" prefHeight="34.0" prefWidth="32.0" style="-fx-background-color: #5F6267;" text="AC" textFill="WHITE" />
                   <Separator layoutX="1.0" layoutY="43.0" prefHeight="18.0" prefWidth="379.0" />
                   <Button layoutX="271.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="÷" textFill="WHITE" />
                   <Button layoutX="271.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="×" textFill="WHITE" />
                   <Button layoutX="271.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="-" textFill="WHITE" />
                   <Button layoutX="272.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="+" textFill="WHITE" />
-                  <Button layoutX="137.0" layoutY="204.0" mnemonicParsing="false" onAction="#HandleOperationsButton" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: #89B4F8;" text="=" />
+                  <Button layoutX="137.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleOperationsButton" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: #89B4F8;" text="=" />
                   <Button layoutX="182.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="35.0" style="-fx-background-color: #3C4043;" text="." textFill="WHITE" />
                   <Button layoutX="74.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="√" textFill="WHITE" />
                   <Button layoutX="74.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5F6267;" text="+/-" textFill="WHITE" />
-                  <Button fx:id="ADD_Button" defaultButton="true" layoutX="74.0" layoutY="60.0" mnemonicParsing="false" onAction="#AddToStack" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #89B4F8;" text="ADD" />
+                  <Button fx:id="ADD_Button" defaultButton="true" layoutX="74.0" layoutY="60.0" mnemonicParsing="false" onAction="#addToStack" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #89B4F8;" text="ADD" />
                   <Button fx:id="button0" layoutX="137.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="35.0" style="-fx-background-color: #3C4043;" text="0" textFill="WHITE" />
                   <Button fx:id="button1" layoutX="137.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="35.0" style="-fx-background-color: #3C4043;" text="1" textFill="WHITE" />
                   <Button fx:id="button4" layoutX="137.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleTextedButton" prefHeight="25.0" prefWidth="35.0" style="-fx-background-color: #3C4043;" text="4" textFill="WHITE" />

@@ -30,6 +30,7 @@ public class CalculatorController implements Initializable {
     private TextArea VariablesTextArea;
     @FXML
     private Button ADD_Button;
+    @FXML
     private ToggleButton toggleMemoryButton;
     @FXML
     private Button toggleStackButton;
@@ -39,6 +40,26 @@ public class CalculatorController implements Initializable {
     private TextField main_textfield;
    
     private Stage primaryStage;
+    @FXML
+    private Button button0;
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button4;
+    @FXML
+    private Button button7;
+    @FXML
+    private Button button5;
+    @FXML
+    private Button button2;
+    @FXML
+    private Button button9;
+    @FXML
+    private Button button6;
+    @FXML
+    private Button button3;
+    @FXML
+    private Button button8;
 
     /**
      * Initializes the controller class.
@@ -53,15 +74,15 @@ public class CalculatorController implements Initializable {
     }
 
     @FXML
-    private void ClearTextfield(ActionEvent event) {
+    private void clearTextfield(ActionEvent event) {
     }
 
     @FXML
-    private void HandleOperationsButton(ActionEvent event) {
+    private void handleOperationsButton(ActionEvent event) {
     }
 
     @FXML
-    private void AddToStack(ActionEvent event) {
+    private void addToStack(ActionEvent event) {
     }
 
     @FXML
