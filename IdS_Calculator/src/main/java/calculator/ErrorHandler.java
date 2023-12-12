@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 
 public class ErrorHandler extends Exception {
     public ErrorHandler() {
-        DisplayMessage("Generic error", 1);
+        displayMessage("Generic error", 1);
     }
 
     public ErrorHandler(String errorMessage, int seconds) {
@@ -16,7 +16,7 @@ public class ErrorHandler extends Exception {
             return;
         }
 
-        DisplayMessage(errorMessage, 1);
+        displayMessage(errorMessage, 1);
     }
 
 
