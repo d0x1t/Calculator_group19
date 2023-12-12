@@ -2,7 +2,7 @@
 
 Questa calcolatrice scientifica avanzata è un progetto innovativo che offre un'ampia gamma di operazioni matematiche, con un focus particolare sui numeri complessi. È stata progettata per essere intuitiva, efficiente e versatile, rendendola uno strumento ideale sia per l'educazione che per la ricerca professionale. Il progetto è sviluppato utilizzando JavaFX FXML e Maven, fornendo un'architettura robusta e facilmente gestibile.
 
-![alt text](/Project%20Documents/Screenshot.png)
+![alt text](/Screenshot.png)
 
 ## Caratteristiche Principali
 
