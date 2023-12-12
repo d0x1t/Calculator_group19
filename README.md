@@ -19,7 +19,7 @@ La documentazione di progetto include:
 - **Planning**: Descrizione delle attività del progetto, scadenze, compiti e un diagramma di Gantt. [Visualizza PDF](/Project%20planning.pdf)
 - **Requirements Engineering**: Definizione dei casi d'uso, diagrammi dei casi d'uso, mock-up di interfaccia e matrice di tracciabilità. [Visualizza PDF](/Requirements%20Engineering.pdf)
 - **Design**: Architettura de sistema, diagramma delle classi, diagrammi di sequenza e matrice di tracciabilità . [Visualizza PDF](/Design.pdf)
-- **Testing and Implementation**: Test planning, matrice di tracciabilità per i test e per l'implementazione. [Visualizza PDF](/Testing%20and%20implementation.pdf)
+- **Testing and Implementation**: Test planning, matrice di tracciabilità per i test e per l'implementazione. [Visualizza PDF](/Testing%20and%20Implementation.pdf)
 
 La documentazione sarà aggiornata nel corso dello sviluppo del progetto.
 
