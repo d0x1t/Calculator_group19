@@ -1,4 +1,4 @@
-package Entity;
+package calculator.Entity;
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package Entity;
+package calculator.Entity;
 
 public interface OperationCalculator {
 

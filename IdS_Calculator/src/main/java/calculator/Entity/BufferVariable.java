@@ -1,4 +1,4 @@
-package Entity;
+package calculator.Entity;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Platform;
@@ -19,7 +19,9 @@ public class BufferVariable {
         return variables;
     }
 
-    public String valueVariable(char variableName) {}
+    public String valueVariable(char variableName) {
+    return null;
+    }
 
     public void storeVariable(char variableName, String value) {}
 
