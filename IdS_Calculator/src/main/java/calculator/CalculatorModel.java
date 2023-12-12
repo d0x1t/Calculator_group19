@@ -210,9 +210,37 @@ public final class CalculatorModel {
             }
         }
         return 0;
-    }
+    } 
 
-    public boolean isValidComplexNumber(String text) {}
+    public boolean isValidComplexNumber(String text) {
+        if (text == null || text.isEmpty()) {
+            return false;
+        }
+
+        // Rimuove gli spazi e converte tutto in minuscolo per semplificare l'analisi
+        text = text.replaceAll(" ", "").toLowerCase();
+
+        String regex = "([+-]?(\\d+\\.\\d+|\\d+))?([+-]?(\\d+\\.\\d+|\\d+)?j)?|([+-]?(\\d+\\.\\d+|\\d+)?j)?([+-]?(\\d+\\.\\d+|\\d+))?";
+
+        /*
+        Spiegazione del regex:
+        ([+-]?(\\d+\\.\\d+|\\d+))?
+
+        ([+-]?): Questo gruppo corrisponde a un segno opzionale + o -. Il punto interrogativo ? rende il segno facoltativo.
+        (\\d+\\.\\d+|\\d+): Questo Ã¨ un gruppo di scelta che corrisponde a un numero. \\d+\\.\\d+ corrisponde a un numero decimale (es. 12.34), dove \\d+ corrisponde a una o piÃ¹ cifre e \\.\\d+ corrisponde al punto decimale seguito da una o piÃ¹ cifre. Il simbolo | significa "OR", quindi \\d+ corrisponde a un numero intero senza parte decimale.
+        L'intero gruppo Ã¨ racchiuso in parentesi con un punto interrogativo finale, rendendo l'intera parte reale facoltativa.
+        
+        ([+-]?(\\d+\\.\\d+|\\d+)?j)? : Questa parte Ã¨ simile alla prima, ma con l'aggiunta di j alla fine. Questo rappresenta la parte immaginaria del numero complesso.
+        La parte ([+-]?(\\d+\\.\\d+|\\d+)?) corrisponde a un numero opzionale (intero o decimale) con un segno opzionale davanti.
+        j Ã¨ la rappresentazione standard della parte immaginaria in un numero complesso.
+        Ancora una volta, l'intero gruppo Ã¨ opzionale.
+        Il carattere '|' Ã¨ l'operatore OR. Divide l'espressione regolare in due parti, permettendo di corrispondere a stringhe che hanno la parte reale seguita dalla parte immaginaria o viceversa.
+        
+        ([+-]?(\\d+\\.\\d+|\\d+)?j)?([+-]?(\\d+\\.\\d+|\\d+))? : Questa parte Ã¨ una ripetizione delle due precedenti ma in ordine inverso, permettendo la parte immaginaria di apparire prima della parte reale.
+         */
+        // Verifica se la stringa corrisponde al pattern del numero complesso
+        return text.matches(regex);
+    }
 
     public String clearComplexNumber(String text) {}
 
