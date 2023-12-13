@@ -22,7 +22,71 @@ public class OperationComplexNumber implements OperationCalculator {
     }
 
     public OperationComplexNumber(String complex_number) {
+        this.real = 0.0;
+        this.imaginary = 0.0;
 
+        if (complex_number == null) {
+            return;
+        }
+
+        //CONTROLLO DEI CASI LIMITE: L'UTENTE HA INSERITO: j o +j o -j
+        if (complex_number.equals("+j") || complex_number.equals("j")) {
+            this.real = 0.0;
+            this.imaginary = 1.0;
+            return;
+        } else if (complex_number.equals("-j")) {
+            this.real = 0.0;
+            this.imaginary = -1.0;
+            return;
+        }
+
+        //CONTROLLO SE L'UTENTE HA INSERITO SOLO UN NUMERO REALE
+        int jIndex = complex_number.indexOf('j');   //indexOf restituisce l'indice della stringa appena trova il carattere j. ritorna -1 in caso contrario.
+        if (jIndex == -1) { // Nessuna parte immaginaria
+            this.real = Double.parseDouble(complex_number);
+            this.imaginary = 0.0;
+            return;
+        }
+
+        // Rimuove 'j' dalla sua posizione
+        complex_number = complex_number.replace("j", "");
+
+        // Trova l'indice di inizio della seconda parte
+        int lastPlusMinus = Math.max(complex_number.lastIndexOf('+'), complex_number.lastIndexOf('-'));
+        if (lastPlusMinus >= 0) {
+            // Estrai le parti
+            String firstPart = complex_number.substring(0, lastPlusMinus);
+            String secondPart = complex_number.substring(lastPlusMinus);
+
+            // Determina quale parte è reale e quale è immaginaria
+            if (jIndex != -1 && jIndex <= lastPlusMinus) {
+                // La parte immaginaria è prima
+                if (firstPart.equals("+") || firstPart.equals("-") || firstPart.isEmpty()) {
+                    this.imaginary = 1.0;
+                } else {
+                    this.imaginary = Double.parseDouble(firstPart);
+                }
+
+                this.real = secondPart.isEmpty() ? 0.0 : Double.parseDouble(secondPart);
+            } else {
+                // La parte reale è prima
+                this.real = firstPart.isEmpty() ? 0.0 : Double.parseDouble(firstPart);
+
+                if (secondPart.equals("+") || secondPart.equals("-") || secondPart.isEmpty()) {
+                    this.imaginary = 1.0;
+                } else {
+                    this.imaginary = Double.parseDouble(secondPart);
+                }
+            }
+        } else {
+            if (jIndex != -1) { // Se c'era 'j', allora è tutto immaginario
+                this.imaginary = Double.parseDouble(complex_number);
+                this.real = 0.0;
+            } else { // Altrimenti, è tutto reale
+                this.real = Double.parseDouble(complex_number);
+                this.imaginary = 0.0;
+            }
+        }
     }
 
     public double getReal() {
@@ -87,11 +151,6 @@ public class OperationComplexNumber implements OperationCalculator {
         if (this.real != 0.0 && this.imaginary == 0.0) {
             return new OperationComplexNumber(-this.real, this.imaginary);
         }
-        return new OperationComplexNumber(-this.real, -this.imaginary);
-    }
-
-    @Override
-    public OperationComplexNumber negate() {
         return new OperationComplexNumber(-this.real, -this.imaginary);
     }
 
