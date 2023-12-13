@@ -270,8 +270,48 @@ public final class CalculatorModel {
                 || text.equals("+");
     }
 
-    public boolean isValidVariable(String text) {}
+    public boolean isValidVariable(String text) {
+        if (text == null || text.isEmpty()) {
+            return false;
+        }
 
-    public String clearVariable(String text) {}
+        // Rimuove gli spazi e converte tutto in minuscolo per semplificare l'analisi
+        text = text.replaceAll(" ", "").toLowerCase();
+
+        if (text.length() != 2) {
+            return false;
+        }
+
+        if (text.charAt(0) != '<'
+                && text.charAt(0) != '>'
+                && text.charAt(0) != '+'
+                && text.charAt(0) != '-') {
+            return false;
+        }
+
+        return text.charAt(1) >= 'a' && text.charAt(1) <= 'z';
+    }
+
+    public String clearVariable(String text) {
+        if (text == null || text.isEmpty()) {
+            return null;
+        }
+
+        // Rimuove gli spazi e converte tutto in minuscolo per semplificare l'analisi
+        text = text.replaceAll(" ", "").toLowerCase();
+
+        if (text.length() != 2) {
+            return null;
+        }
+
+        if (text.charAt(0) != '<'
+                && text.charAt(0) != '>'
+                && text.charAt(0) != '+'
+                && text.charAt(0) != '-') {
+            return null;
+        }
+
+        return text;
+    }
 
 }
