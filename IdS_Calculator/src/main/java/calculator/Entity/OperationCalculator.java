@@ -14,7 +14,7 @@ public interface OperationCalculator {
 
     public OperationComplexNumber inverse();
 
-    public OperationComplexNumber negate();
+
 
     @Override
     public String toString();
