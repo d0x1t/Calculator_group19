@@ -2,7 +2,7 @@ package calculator;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import Entity.*;
+import calculator.Entity.*;
 public final class CalculatorModel {
 
     private Stack stack;

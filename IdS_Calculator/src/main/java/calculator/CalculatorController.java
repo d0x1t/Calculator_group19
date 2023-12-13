@@ -16,7 +16,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-import Entity.*;
+import calculator.Entity.*;
 
 /**
  *

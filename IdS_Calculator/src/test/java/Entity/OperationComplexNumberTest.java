@@ -5,28 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import calculator.Entity.*;
 
 public class OperationComplexNumberTest {
 
-    public OperationComplexNumberTest() {
-    }
 
-    @BeforeAll
-    public static void setUpClass() {
-    }
-
-    @AfterAll
-    public static void tearDownClass() {
-    }
-
-    @BeforeEach
-    public void setUp() {
-    }
-
-    @AfterEach
-    public void tearDown() {
-    }
   // test Add
     @Test
     public void testAddTA01() {

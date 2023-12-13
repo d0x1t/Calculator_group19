@@ -164,11 +164,22 @@ public class OperationComplexNumber implements OperationCalculator {
         }
     }
 
-    @Override
+     @Override
     public String toString() {
 
-    return null;
-}
+        if (this.imaginary > 0.0) {
+            if (this.real == 0.0) {
+                return String.format("%sj", formatDouble(this.imaginary));
+            }
+            return String.format("%s+%sj", formatDouble(this.real), formatDouble(this.imaginary));
+        } else if (this.imaginary == 0.0) {
+            return String.format("%s", formatDouble(this.real));
+        } else if (this.real == 0.0) {
+            return String.format("%sj", formatDouble(this.imaginary));
+        } else {
+            return String.format("%s%sj", formatDouble(this.real), formatDouble(this.imaginary));
+        }
+    }
 
  
 }
