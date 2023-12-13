@@ -155,7 +155,13 @@ public class OperationComplexNumber implements OperationCalculator {
     }
 
     public String formatDouble(double value) {
-      return null;
+        if (value == (long) value) {
+            // Se il valore è effettivamente un intero, convertilo direttamente in Long e poi in String
+            return String.format("%d", (long) value);
+        } else {
+            // Altrimenti, usa String.format per ridurre il numero di cifre decimali solo se necessario
+            return String.format("%.2f", value).replaceAll("0*$", "").replaceAll("\\.$", "");
+        }
     }
 
     @Override
