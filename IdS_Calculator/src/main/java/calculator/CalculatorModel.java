@@ -242,9 +242,33 @@ public final class CalculatorModel {
         return text.matches(regex);
     }
 
-    public String clearComplexNumber(String text) {}
+    public String clearComplexNumber(String text) {
+        if (text == null || text.isEmpty()) {
+            return null;
+        }
 
-    public boolean isValidOperator(String text) {}
+        // Rimuove gli spazi e converte tutto in minuscolo per semplificare l'analisi
+        text = text.replaceAll(" ", "").toLowerCase();
+
+        // Semplifica gli operatori iterativamente
+        return text;
+    }
+
+    public boolean isValidOperator(String text) {
+        if (text == null || text.isEmpty()) {
+            return false;
+        }
+
+        // Rimuove gli spazi e converte tutto in minuscolo per semplificare l'analisi
+        text = text.replaceAll(" ", "").toLowerCase();
+
+        return text.equals("+/-")
+                || text.equals("√")
+                || text.equals("÷")
+                || text.equals("×")
+                || text.equals("-")
+                || text.equals("+");
+    }
 
     public boolean isValidVariable(String text) {}
 
