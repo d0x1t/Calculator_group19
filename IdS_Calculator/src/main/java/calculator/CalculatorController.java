@@ -85,14 +85,74 @@ public final class CalculatorController implements Initializable {
 
     @FXML
     private void clearTextfield(ActionEvent event) {
+        if (all_keys_disabled) {
+            return;
+        }
+
+        ADD_Button.requestFocus();
+        main_textfield.setText("");
     }
 
     @FXML
-    private void handleOperationsButton(ActionEvent event) {
+    public void handleOperationsButton(ActionEvent event) throws ErrorHandler {
+        if (all_keys_disabled) {
+            return;
+        }
+        //NON CI SONO OPERAZIONI DA EFFETTUARE SE LO STACK Ă¨ VUOTO
+        if (stack.isEmpty()) {
+            throw new ErrorHandler("The stack is empty!", 1);
+        }
+
+        //CONTROLLO SE NELLO STACK CI STA ALMENO UN OPERATORE
+        boolean operators_exists = false;
+        for (String item : stack.getStack()) {
+            if (model.isValidOperator(item)) {
+                operators_exists = true;
+            }
+        }
+        if (!operators_exists) {
+            throw new ErrorHandler("No valid operation in the stack.", 1);
+        }
+
+        //ESEGUO TUTTE LE OPERAZIONI 
+        model.executeOperations();
+
+        //PULISCO L'AREA DI TESTO
+        main_textfield.setText("");
     }
 
     @FXML
-    private void addToStack(ActionEvent event) {
+    public void addToStack(ActionEvent event) throws ErrorHandler {
+        if (all_keys_disabled) {
+            return;
+        }
+        //ottiene il testo dall'area di testo
+        String temp_string = main_textfield.getText();
+        //ripulisce il testo
+        String cleaned_temp_string = temp_string.replaceAll(" ", "").toLowerCase();
+
+        if (cleaned_temp_string.equals("+j") || cleaned_temp_string.equals("-j")) {
+            int scelta = model.showAChoiceDialogue();
+            if (scelta == 2 && model.isValidComplexNumber(temp_string)) {
+                main_textfield.setText("");
+
+                stack.push(model.clearComplexNumber(temp_string));
+            } else if (scelta == 1 && model.isValidVariable(temp_string)) {
+                model.handleVariables(model.clearVariable(temp_string));
+                main_textfield.setText("");
+            }
+        } else {
+            main_textfield.setText("");
+
+            if (model.isValidOperator(temp_string) || model.isValidComplexNumber(temp_string)) {
+                stack.push((model.clearComplexNumber(temp_string)));
+
+            } else if (model.isValidVariable(temp_string)) {
+                model.handleVariables(model.clearVariable(temp_string));
+            } else {
+                throw new ErrorHandler("Invalid complex number or operator", 2);
+            }
+        }
     }
 
       @FXML
