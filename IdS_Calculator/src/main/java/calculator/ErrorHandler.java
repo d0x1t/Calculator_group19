@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.control.TextField;
 
 
-public class ErrorHandler extends Exception {
+
     public class ErrorHandler extends Exception {
 
     private void resetTextFieldAfterDelay(TextField textField, String initialText, long delay, TimeUnit unit) {
