@@ -281,7 +281,7 @@ public class CalculatorModelTest {
         stack.push("1+4.2j");
         stack.push("+");
         model.executeOperations();
-        assertEquals("4+6.2j", stack.pop());
+        assertEquals("4+6,2j", stack.pop());
     }
 
     @Test
@@ -308,7 +308,7 @@ public class CalculatorModelTest {
         stack.push("1+4j");
         stack.push("÷");
         model.executeOperations();
-        assertEquals("0.65-0.59j", stack.pop());
+        assertEquals("0,65-0,59j", stack.pop());
     }
 
     @Test
@@ -338,7 +338,7 @@ public class CalculatorModelTest {
         stack.push("2+2j");
         stack.push("÷");
         model.executeOperations();
-        assertEquals("-0.25+0.75j", stack.pop());
+        assertEquals("-0,25+0,75j", stack.pop());
     }
 
     @Test
