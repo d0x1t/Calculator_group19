@@ -183,10 +183,46 @@ public final class CalculatorController implements Initializable {
         toggleMemoryButton.setText(isMemoryExpanded ? "≫ A-Z Memory ≫" : "≪ A-Z Memory ≪");
     }
 
+    
     @FXML
-    private void handleStackButtons(ActionEvent event) {
+    public void handleStackButtons(ActionEvent event) throws ErrorHandler{
+        if (all_keys_disabled) return;
+
+        ADD_Button.requestFocus();
+        Button btn = (Button)event.getSource();
+       
+
+
+        if (stack.isEmpty())
+            throw new ErrorHandler("Stack is empty", 1);
+
+        switch (btn.getText()) {
+            case "CLEAR":
+                stack.clear();
+                throw new ErrorHandler("Stack cleaned", 1);
+            case "DROP":
+                stack.drop();
+                throw new ErrorHandler("Last element dropped", 1);
+            case "DUP":
+                stack.dup();
+                throw new ErrorHandler("Last element duplicated", 1);
+            case "SWAP":
+                if (stack.size() < 2)
+                    throw new ErrorHandler("Insufficient elements in the stack", 1);
+
+                stack.swap();
+                throw new ErrorHandler("Last two elements swapped", 1);
+            case "OVER":
+                if (stack.size() < 2)
+                    throw new ErrorHandler("Insufficient elements in the stack", 1);
+
+                stack.over();
+                throw new ErrorHandler("Second last element copied", 1);
+        }
+
     }
-       public void expandWindow() {
+    
+    public void expandWindow() {
         double currentWidth = primaryStage.getWidth();
         primaryStage.setWidth(currentWidth + 278);
     }
